@@ -1,0 +1,19 @@
+.vl {
+    border-left: 6px solid black;
+    height: 500px;
+    position: absolute;
+    left: 30%;
+    margin-left: -3px;
+    top: 0;
+}
+
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 2em;
+    margin-bottom: 0.67em;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-weight: bold;
+}
