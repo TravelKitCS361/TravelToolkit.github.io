@@ -21,3 +21,11 @@ h1 {
 .guest-link {
     margin-top: .5em;
 }
+
+.form-group{
+  text-align: center;
+}
+
+.card-header{
+  background-color: #9cd1f8 
+}
