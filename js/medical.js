@@ -126,6 +126,9 @@ function activatePlaceSearch() {
     };
     var locationSearchTextBox = document.getElementById('location-search');
     var autoComplete = new google.maps.places.Autocomplete(locationSearchTextBox, options);
+    autoComplete.addListener('place_changed', function (){
+        console.log('Location changed');
+    });
 }
 
 function loadGooglePlacesAPI() {
