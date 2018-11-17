@@ -120,9 +120,12 @@ $(document).ready(function () {
     loadGooglePlacesAPI();
 });
 
-function activatePlaceSearch(){
+function activatePlaceSearch() {
+    var options = {
+        types: ['(regions)']
+    };
     var locationSearchTextBox = document.getElementById('location-search');
-    var autoComplete = new google.maps.places.Autocomplete(locationSearchTextBox);
+    var autoComplete = new google.maps.places.Autocomplete(locationSearchTextBox, options);
 }
 
 function loadGooglePlacesAPI() {
