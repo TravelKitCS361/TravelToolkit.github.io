@@ -3,8 +3,10 @@
 function getHostpitalInformation(city) {
     $.ajax({
         type: 'GET',
+        mode: 'no-cors',
         headers: {
-            'Content-Type': 'application/json'
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json/'
         },
         url: 'https://maps.googleapis.com/maps/api/place/autocomplete/json',
         cache: false,
