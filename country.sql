@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS `country` (
 --
 -- Dumping data for table `country`
 --
-
 INSERT INTO `country` (`id`, `iso`, `name`, `nicename`, `iso3`, `police`, `ambulance`) VALUES
 (1, 'AF', 'AFGHANISTAN', 'Afghanistan', 'AFG', 119, 102),
 (2, 'AL', 'ALBANIA', 'Albania', 'ALB', 129, 127),
