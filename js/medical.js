@@ -45,12 +45,21 @@ function getHospitalInformation() {
     var request = {
         query: 'hospitals+in+' + searchLocationInfo.formatted_address
     };
-    var element = document.getElementById('health-info-card');
-    service = new google.maps.places.PlacesService(element);
+    var healthElm = document.getElementById('health-card-body');
+    service = new google.maps.places.PlacesService(healthElm);
     service.textSearch(request, function (results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                console.log('results: ', results[i].name);
+                console.log('Hospital Name: ', results[i].name);
+                console.log('Hospital Address: ', results[i].formatted_address);
+                healthElm.innerHTML +=
+                    '<div class="row">' +
+                    '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
+                    '</div>' +
+                    '<div class="row">' +
+                    '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
+                    '</div>' +
+                    '<hr>'
             }
         }
     });
