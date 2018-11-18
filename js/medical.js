@@ -1,7 +1,12 @@
 $(document).ready(function () {
-
     loadGooglePlacesAPI();
 });
+
+var searchLocationInfo = {
+    formatted_address: null,
+    latitude: null,
+    longitude: null
+}
 
 function activatePlaceSearch() {
     var options = {
@@ -9,8 +14,11 @@ function activatePlaceSearch() {
     };
     var locationSearchTextBox = document.getElementById('location-search');
     var autoComplete = new google.maps.places.Autocomplete(locationSearchTextBox, options);
-    autoComplete.addListener('place_changed', function (){
-        console.log('Location changed');
+    autoComplete.addListener('place_changed', function () {
+        console.log('autoComplete: ', autoComplete.getPlace());
+        searchLocationInfo.formatted_address = autoComplete.getPlace().formatted_address;
+        searchLocationInfo.latitude = autoComplete.getPlace().geometry.location.lat();
+        searchLocationInfo.longitude = autoComplete.getPlace().geometry.location.lng();
     });
 }
 
@@ -22,7 +30,6 @@ function loadGooglePlacesAPI() {
 }
 
 function getCountryForEmergency() {
-  debugger  
     var x = document.getElementById("medicalForm");
     var text = "EMERGENCY NUMBER FOR ";
     var i;
@@ -31,4 +38,20 @@ function getCountryForEmergency() {
     }
     text += ": 911"
     document.getElementById("currentCountry").innerHTML = text.toUpperCase();
+    getHospitalInformation();
+}
+
+function getHospitalInformation() {
+    var request = {
+        query: 'hospitals+in+' + searchLocationInfo.formatted_address
+    };
+    var element = document.getElementById('health-info-card');
+    service = new google.maps.places.PlacesService(element);
+    service.textSearch(request, function (results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+                console.log('results: ', results[i].name);
+            }
+        }
+    });
 }
