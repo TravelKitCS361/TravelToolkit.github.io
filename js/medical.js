@@ -1,5 +1,6 @@
 $(document).ready(function () {
     loadGooglePlacesAPI();
+    $('#health-spinner-container').hide();
 });
 
 var searchLocationInfo = {
@@ -45,22 +46,26 @@ function getHospitalInformation() {
     var request = {
         query: 'hospitals+in+' + searchLocationInfo.formatted_address
     };
+    $('#health-spinner-container').show();
     var healthElm = document.getElementById('health-card-body');
-    service = new google.maps.places.PlacesService(healthElm);
+    var navbarElm = document.getElementById('navbarNav');
+    service = new google.maps.places.PlacesService(navbarElm);
     service.textSearch(request, function (results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                console.log('Hospital Name: ', results[i].name);
-                console.log('Hospital Address: ', results[i].formatted_address);
-                healthElm.innerHTML +=
-                    '<div class="row">' +
-                    '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
-                    '</div>' +
-                    '<div class="row">' +
-                    '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
-                    '</div>' +
-                    '<hr>'
-            }
+            setTimeout(function () {
+                $('#health-spinner-container').hide();
+                for (var i = 0; i < results.length; i++) {
+                    console.log('Hospital Name: ', results[i]);
+                    healthElm.innerHTML +=
+                        '<div class="row">' +
+                        '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
+                        '</div>' +
+                        '<hr>'
+                }
+            }, 1500)
         }
     });
 }
