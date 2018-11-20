@@ -62,8 +62,8 @@ function getHospitalInformation() {
     };
     $('#health-spinner-container').show();
     var healthElm = document.getElementById('health-card-body');
-    var navbarElm = document.getElementById('navbarNav');
-    service = new google.maps.places.PlacesService(navbarElm);
+    var spacingElm = document.getElementById('bottom-spacing');
+    service = new google.maps.places.PlacesService(spacingElm);
     service.textSearch(request, function (results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             setTimeout(function () {
@@ -90,8 +90,8 @@ function getPoliceInformation() {
     };
     $('#police-spinner-container').show();
     var policeElm = document.getElementById('police-card-body');
-    var navbarElm = document.getElementById('navbarNav');
-    service = new google.maps.places.PlacesService(navbarElm);
+    var spacingElm = document.getElementById('bottom-spacing');
+    service = new google.maps.places.PlacesService(spacingElm);
     service.textSearch(request, function (results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             setTimeout(function () {
@@ -119,8 +119,8 @@ function getFireFighterInformation() {
     };
     $('#firestation-spinner-container').show();
     var policeElm = document.getElementById('firestation-card-body');
-    var navbarElm = document.getElementById('navbarNav');
-    service = new google.maps.places.PlacesService(navbarElm);
+    var spacingElm = document.getElementById('bottom-spacing');
+    service = new google.maps.places.PlacesService(spacingElm);
     service.textSearch(request, function (results, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             setTimeout(function () {
