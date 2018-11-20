@@ -1,7 +1,7 @@
-$(document).ready(function () {
-    loadGooglePlacesAPI();
-    $('#health-spinner-container').hide();
-});
+/************************
+ * Variable Declarations *
+ *************************/
+const loadingTime = 1500;
 
 var searchLocationInfo = {
     formatted_address: null,
@@ -30,16 +30,30 @@ function loadGooglePlacesAPI() {
     document.getElementsByTagName('body')[0].appendChild(scriptTag);
 }
 
-function getCountryForEmergency() {
-    var x = document.getElementById("medicalForm");
-    var text = "EMERGENCY NUMBER FOR ";
-    var i;
-    for (i = 0; i < x.length; i++) {
-        text += x.elements[i].value;
+function onKeyPressed(){
+    var locationSearchBox = document.getElementById('location-search');
+    if(locationSearchBox.classList.contains('is-invalid')){
+        locationSearchBox.classList.remove('is-invalid')
     }
-    text += ": 911"
-    document.getElementById("currentCountry").innerHTML = text.toUpperCase();
-    getHospitalInformation();
+}
+
+function getCountryForEmergency() {
+    var locationSearchBox = document.getElementById('location-search');
+    if (locationSearchBox.value !== '') {
+        var x = document.getElementById('medicalForm');
+        var text = 'EMERGENCY NUMBER FOR ';
+        var i;
+        for (i = 0; i < x.length; i++) {
+            text += x.elements[i].value;
+        }
+        text += ': 911'
+        document.getElementById('currentCountry').innerHTML = text.toUpperCase();
+        getHospitalInformation();
+        getPoliceInformation();
+        getFireFighterInformation();
+    }else{
+        locationSearchBox.classList.add('is-invalid')
+    }
 }
 
 function getHospitalInformation() {
@@ -65,7 +79,71 @@ function getHospitalInformation() {
                         '</div>' +
                         '<hr>'
                 }
-            }, 1500)
+            }, loadingTime)
         }
     });
 }
+
+function getPoliceInformation() {
+    var request = {
+        query: 'police+in+' + searchLocationInfo.formatted_address
+    };
+    $('#police-spinner-container').show();
+    var policeElm = document.getElementById('police-card-body');
+    var navbarElm = document.getElementById('navbarNav');
+    service = new google.maps.places.PlacesService(navbarElm);
+    service.textSearch(request, function (results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            setTimeout(function () {
+                $('#police-spinner-container').hide();
+                for (var i = 0; i < results.length; i++) {
+                    console.log('Police Name: ', results[i]);
+                    policeElm.innerHTML +=
+                        '<div class="row">' +
+                        '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
+                        '</div>' +
+                        '<hr>'
+                }
+            }, loadingTime)
+        }
+    });
+}
+
+function getFireFighterInformation() {
+    var request = {
+        query: 'firestation+in+' + searchLocationInfo.formatted_address,
+        type: ['fire_station']
+    };
+    $('#firestation-spinner-container').show();
+    var policeElm = document.getElementById('firestation-card-body');
+    var navbarElm = document.getElementById('navbarNav');
+    service = new google.maps.places.PlacesService(navbarElm);
+    service.textSearch(request, function (results, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+            setTimeout(function () {
+                $('#firestation-spinner-container').hide();
+                for (var i = 0; i < results.length; i++) {
+                    console.log('firestation Name: ', results[i]);
+                    policeElm.innerHTML +=
+                        '<div class="row">' +
+                        '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
+                        '</div>' +
+                        '<div class="row">' +
+                        '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
+                        '</div>' +
+                        '<hr>'
+                }
+            }, loadingTime)
+        }
+    });
+}
+
+$(document).ready(function () {
+    loadGooglePlacesAPI();
+    $('#health-spinner-container').hide();
+    $('#police-spinner-container').hide();
+    $('#firestation-spinner-container').hide();
+});

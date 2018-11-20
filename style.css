@@ -122,8 +122,19 @@ body {
 	font-size: 1em;
 	background: #181818;
 }
+
 #health-spinner-container{
   text-align: center;
 }
+
+#police-spinner-container{
+  text-align: center;
+} 
+
+#firestation-spinner-container{
+  text-align: center;
+}
+
+
 
 
