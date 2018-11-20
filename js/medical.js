@@ -72,7 +72,7 @@ function getHospitalInformation() {
                     console.log('Hospital Name: ', results[i]);
                     healthElm.innerHTML +=
                         '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
+                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + results[i].name + '</div>' +
                         '</div>' +
                         '<div class="row">' +
                         '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
@@ -100,7 +100,7 @@ function getPoliceInformation() {
                     console.log('Police Name: ', results[i]);
                     policeElm.innerHTML +=
                         '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
+                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + results[i].name + '</div>' +
                         '</div>' +
                         '<div class="row">' +
                         '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
@@ -129,7 +129,7 @@ function getFireFighterInformation() {
                     console.log('firestation Name: ', results[i]);
                     policeElm.innerHTML +=
                         '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + results[i].name + '</div>' +
+                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + results[i].name + '</div>' +
                         '</div>' +
                         '<div class="row">' +
                         '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
