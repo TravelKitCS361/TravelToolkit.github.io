@@ -89,39 +89,223 @@ function getEmergencyInfo() {
                           var emergencyNumber;
 
                           switch(countryName) {
-                            default:
-                              emegencyNumber = 'Unknown';
-                            case "United States", "Bermuda", "Canada", "Mexico", "Bahamas", "Botswana",
-                            "Ethiopia", "Liberia", "Kenya", "Tristan da Cunha", "Uganda", "Antartica",
-                            "Iraq", "Jordan", "Kurdistan", "Philippines", "Saudi Arabia", "Thailand",
-                            "Armenia", "American Samoa", "Fiji", "Guam", "Marshall Islands", "Micronesia",
-                            "Palau", "Solomon Islands", "Tonga", "Tuvalu", "Belize", "Costa Rica", "El Salvador",
-                            "Panama", "Antigua and Barbuda", "Anguilla", "Aruba", "British Virgin Islands",
-                            "Curacao", "Grenada", "Montserrat", "Navassa Island", "Saint Kitts and Nevis",
-                            "Saint Lucia", "Saint Vincent and the Grenadines", "United States Virgin Islands",
-                            "Barbados", "Bonaire", "Cayman Islands", "Dominican Republic", "Puerto Rico", "Trinidad and Tobago",
-                            "Argentina", "Bolivia", "Ecuador", "Paraguay", "Peru", "Uruguay", "Venezuela":
-                                emergencyNumber = '911';
-                              case "Australia", "Christmas Island", "Cocos Islands":
-                                emergencyNumber = '000';
-                              case "Benin", "Burundi", "Burkina Faso", "Cameroon", "Democratic Republic of Congo", "Equatorial Guinea",
-                              "Guinea-Bissau", "Kenya", "Mauritius", "Mayotte", "Nigeria", "Rwanda", "Sao Tome and Principe", "Seychelles",
-                              "Tanzania", "Uganda", "Afghanistan", "Akrotiri and Dhekelia", "Bhutan", "British Indian Ocean Territory", "East Timor",
-                              "Iraq", "Kazakhstan", "Republic of Korea", "Kuwait", "Lebanon", "Syria", "Tajikistan", "Turkmenistan", "United Arab Emirates",
-                              "Uzbekistan", "Aland Islands", "Albania", "Andorra", "Armenia", "Artsakh", "Austria", "Azerbaijan", "Belgium", "Bosnia and Herzegovina",
-                              "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Faroe Islands", "Finland", "France", "Georgia", "Germany",
-                              "Gibraltar", "Greece", "Greenland", "Guernsey", "Hungary", "Iceland", "Ireland", "Isle of Man", "Italy", "Jersey", "Kosovo", "Latvia",
-                              "Lithuania", "Liechtenstein", "Luxembourg", "Republic of Macedonia", "Malta", "Monaco", "Montenegro", "Netherlands", "Northern Cyprus",
-                              "Norway", "Poland", "Portugal", "Romania", "Russia", "San Marino", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey",
-                              "Ukraine", "United Kingdom", "Vatican City", "French Polynesia", "Nauru", "New Caledonia", "Vanuatu", "Clipperton Island", "Honduras",
-                              "Guadeloupe", "Martinique", "Saint Pierre and Miquelon", "Falkland Islands", "French Guiana":
-                                emergencyNumber = '112';
-                              case "Ascension Island", "Ghana", "Malawi", "Saint Helena", "Sierra Leone", "Somalia", "Sudan", "South Sudan", "Swaziland", "Tristan da Cunha",
-                              "Zambia", "Zimbabwe", "Bahrain", "Bangladesh", "British Indian Ocean Territory", "Burma", "Hong Kong", "Lebanon", "Malaysia", "Qatar", "Singapore",
-                              "Cook Islands", "Kiribati", "Samoa", "Dominica", "Falkland Islands", "South Georgia and the South Sandwich Islands":
-                                emergencyNumber = '999';
+                            case "United States":
+                            case "Bermuda":
+                              case "Canada":
+                              case "Mexico":
+                          	case  "Bahamas":
+                          	case  "Botswana":
+                          	case "Ethiopia":
+                          	case  "Liberia":
+                          	case  "Kenya":
+                          	case  "Tristan da Cunha":
+                          	case  "Uganda":
+                          	case  "Antartica":
+                          	case "Iraq":
+                          	case  "Jordan":
+                          	case  "Kurdistan":
+                          	case  "Philippines":
+                          	case  "Saudi Arabia":
+                          	case  "Thailand":
+                          	case "Armenia":
+                          	case  "American Samoa":
+                          	case  "Fiji":
+                          	case  "Guam":
+                          	case  "Marshall Islands":
+                          	case  "Micronesia":
+                          	case
+                                                      "Palau":
+                          	case  "Solomon Islands":
+                          	case  "Tonga":
+                          	case  "Tuvalu":
+                          	case  "Belize":
+                          	case  "Costa Rica":
+                          	case  "El Salvador":
+                          	case
+                                                      "Panama":
+                          	case  "Antigua and Barbuda":
+                          	case  "Anguilla":
+                          	case  "Aruba":
+                          	case  "British Virgin Islands":
+                          	case
+                                                      "Curacao":
+                          	case  "Grenada":
+                          	case  "Montserrat":
+                          	case  "Navassa Island":
+                          	case  "Saint Kitts and Nevis":
+                          	case
+                                                      "Saint Lucia":
+                          	case  "Saint Vincent and the Grenadines":
+                          	case  "United States Virgin Islands":
+                          	case
+                                                      "Barbados":
+                          	case  "Bonaire":
+                          	case  "Cayman Islands":
+                          	case  "Dominican Republic":
+                          	case  "Puerto Rico":
+                          	case  "Trinidad and Tobago":
+                          	case
+                                                      "Argentina":
+                          	case  "Bolivia":
+                          	case  "Ecuador":
+                          	case  "Paraguay":
+                          	case  "Peru":
+                          	case  "Uruguay":
+                          	case  "Venezuela":
+                                emergencyNumber = '911'
+                                break;
+                            case "Australia":
+                          	case  "Christmas Island":
+                          	case  "Cocos Islands":
+                                emergencyNumber = '000'
+                                break;
+                            case "Benin":
+                          	case  "Burundi":
+                          	case  "Burkina Faso":
+                          	case  "Cameroon":
+                          	case  "Democratic Republic of Congo":
+                          	case  "Equatorial Guinea":
+                          	case
+                                                        "Guinea-Bissau":
+                          	case  "Kenya":
+                          	case  "Mauritius":
+                          	case  "Mayotte":
+                          	case  "Nigeria":
+                          	case  "Rwanda":
+                          	case  "Sao Tome and Principe":
+                          	case  "Seychelles":
+                          	case
+                                                        "Tanzania":
+                          	case  "Uganda":
+                          	case  "Afghanistan":
+                          	case  "Akrotiri and Dhekelia":
+                          	case  "Bhutan":
+                          	case  "British Indian Ocean Territory":
+                          	case  "East Timor":
+                          	case
+                                                        "Iraq":
+                          	case  "Kazakhstan":
+                          	case  "Republic of Korea":
+                          	case  "Kuwait":
+                          	case  "Lebanon":
+                          	case  "Syria":
+                          	case  "Tajikistan":
+                          	case  "Turkmenistan":
+                          	case  "United Arab Emirates":
+                          	case
+                                                        "Uzbekistan":
+                          	case  "Aland Islands":
+                          	case  "Albania":
+                          	case  "Andorra":
+                          	case  "Armenia":
+                          	case  "Artsakh":
+                          	case  "Austria":
+                          	case  "Azerbaijan":
+                          	case  "Belgium":
+                          	case  "Bosnia and Herzegovina":
+                          	case
+                                                        "Bulgaria":
+                          	case  "Croatia":
+                          	case  "Cyprus":
+                          	case  "Czech Republic":
+                          	case  "Denmark":
+                          	case  "Estonia":
+                          	case  "Faroe Islands":
+                          	case  "Finland":
+                          	case  "France":
+                          	case  "Georgia":
+                          	case  "Germany":
+                          	case
+                                                        "Gibraltar":
+                          	case  "Greece":
+                          	case  "Greenland":
+                          	case  "Guernsey":
+                          	case  "Hungary":
+                          	case  "Iceland":
+                          	case  "Ireland":
+                          	case  "Isle of Man":
+                          	case  "Italy":
+                          	case  "Jersey":
+                          	case  "Kosovo":
+                          	case  "Latvia":
+                          	case
+                                                        "Lithuania":
+                          	case  "Liechtenstein":
+                          	case  "Luxembourg":
+                          	case  "Republic of Macedonia":
+                          	case  "Malta":
+                          	case  "Monaco":
+                          	case  "Montenegro":
+                          	case  "Netherlands":
+                          	case  "Northern Cyprus":
+                          	case
+                                                        "Norway":
+                          	case  "Poland":
+                          	case  "Portugal":
+                          	case  "Romania":
+                          	case  "Russia":
+                          	case  "San Marino":
+                          	case  "Slovakia":
+                          	case  "Slovenia":
+                          	case  "Spain":
+                          	case  "Sweden":
+                          	case  "Switzerland":
+                          	case  "Turkey":
+                          	case
+                                                        "Ukraine":
+                          	case  "United Kingdom":
+                          	case  "Vatican City":
+                          	case  "French Polynesia":
+                          	case  "Nauru":
+                          	case  "New Caledonia":
+                          	case  "Vanuatu":
+                          	case  "Clipperton Island":
+                          	case  "Honduras":
+                          	case
+                                                        "Guadeloupe":
+                          	case  "Martinique":
+                          	case  "Saint Pierre and Miquelon":
+                          	case  "Falkland Islands":
+                          	case  "French Guiana":
+                                                          emergencyNumber = '112'
+                                                          break;
+                                                        case "Ascension Island":
+                          	case  "Ghana":
+                          	case  "Malawi":
+                          	case  "Saint Helena":
+                          	case  "Sierra Leone":
+                          	case  "Somalia":
+                          	case  "Sudan":
+                          	case  "South Sudan":
+                          	case  "Swaziland":
+                          	case  "Tristan da Cunha":
+                          	case
+                                                        "Zambia":
+                          	case  "Zimbabwe":
+                          	case  "Bahrain":
+                          	case  "Bangladesh":
+                          	case  "British Indian Ocean Territory":
+                          	case  "Burma":
+                          	case  "Hong Kong":
+                          	case  "Lebanon":
+                          	case  "Malaysia":
+                          	case  "Qatar":
+                          	case  "Singapore":
+                          	case
+                                                        "Cook Islands":
+                          	case  "Kiribati":
+                          	case  "Samoa":
+                          	case  "Dominica":
+                          	case  "Falkland Islands":
+                          	case  "South Georgia and the South Sandwich Islands":
+                                emergencyNumber = '999'
+                                break;
                               case "Oman":
-                                  emergencyNumber = '9999';
+                                  emergencyNumber = '9999'
+                                  break;
+                              default:
+                                    emergencyNumber = 'Unknown'
+                                    break;
                           }
 
 
