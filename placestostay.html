@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+
+
+  <title>Travel Toolkit</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <span class="navbar-brand mb-0 h1">Travel Toolkit</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="home.html">Home</a>
+        <a class="nav-item nav-link" href="medical.html">Medical</a>
+        <a class="nav-item nav-link" href="#">Transportation</a>
+        <a class="nav-item nav-link active" href="placestostay.html">Places to Stay</a>
+        <a class="nav-item nav-link" href="food.html">Food</a>
+        <a class="nav-item nav-link" href="index.html">Log In</a>
+      </div>
+    </div>
+  </nav>
+
+  <br>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="form-group">
+        <h2>Enter your location</h2>
+        <br>
+        <form id="medicalForm" autocomplete="off">
+          <div class="autocomplete" style="width:300px;">
+            <input type="text" class="form-control" id="location-search" name="location-search" placeholder="Enter City or Country..."
+            onkeypress="onKeyPressed()" required>
+          </div>
+          <button type="submit" class="btn btn-primary" name="Submit" onclick="getCountryForEmergency(); return false;">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="container">
+    <div class="card hotels-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>Hotels</h3>
+      </div>
+      <div class="card-body" id="hotels-card-body">
+        <section id="hotels-spinner-container">
+          <div class="spinner icon-spinner-6" aria-hidden="true"></div>
+        </section>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="card hostels-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>Hostels</h3>
+      </div>
+      <div class="card-body" id="hostels-card-body">
+        <section id="hostels-spinner-container">
+          <div class="spinner icon-spinner-6" aria-hidden="true"></div>
+        </section>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="card shelters-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>Shelters</h3>
+      </div>
+      <div class="card-body" id="shelters-card-body">
+        <section id="shelters-spinner-container">
+          <div class="spinner icon-spinner-6" aria-hidden="true"></div>
+        </section>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="card airbnb-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>AirBnB</h3>
+      </div>
+      <div class="card-body" id="airbnb-card-body">
+        <section id="airbnb-spinner-container">
+          <div class="spinner icon-spinner-6" aria-hidden="true"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <br id="bottom-spacing">
+
+  <!-- Libraries -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="./vendor/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!--- Scripts -->
+  <script type="text/javascript" src="./js/medical.js"></script>
+  <script type='text/javascript' src='./config/config.js'></script>
+</body>
+
+</html>
