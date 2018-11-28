@@ -3,33 +3,6 @@
  *************************/
 const loadingTime = 1500;
 
-var searchLocationInfo = {
-    formatted_address: null,
-    latitude: null,
-    longitude: null
-}
-
-function activatePlaceSearch() {
-    var options = {
-        types: ['(regions)']
-    };
-    var locationSearchTextBox = document.getElementById('location-search');
-    var autoComplete = new google.maps.places.Autocomplete(locationSearchTextBox, options);
-    autoComplete.addListener('place_changed', function () {
-        console.log('autoComplete: ', autoComplete.getPlace());
-        searchLocationInfo.formatted_address = autoComplete.getPlace().formatted_address;
-        searchLocationInfo.latitude = autoComplete.getPlace().geometry.location.lat();
-        searchLocationInfo.longitude = autoComplete.getPlace().geometry.location.lng();
-    });
-}
-
-function loadGooglePlacesAPI() {
-    var scriptTag = document.createElement('script');
-    scriptTag.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCOOw5K64NubApGz_E_92Y0Rx6ARe1-IGA&libraries=places&callback=activatePlaceSearch';
-    scriptTag.type = 'text/javascript';
-    document.getElementsByTagName('body')[0].appendChild(scriptTag);
-}
-
 function onKeyPressed() {
     var locationSearchBox = document.getElementById('location-search');
     if (locationSearchBox.classList.contains('is-invalid')) {
@@ -378,7 +351,11 @@ function getFireFighterInformation() {
 }
 
 $(document).ready(function () {
-    GoogleApiServices.loadGooglePlacesAPI();
+    var options = {
+        types: ['(regions)']
+    };
+    var locationSearchTextBox = document.getElementById('location-search');
+    GoogleApiServices.initWithAutoComplete(locationSearchTextBox, options)
     $('#health-spinner-container').hide();
     $('#police-spinner-container').hide();
     $('#firestation-spinner-container').hide();
