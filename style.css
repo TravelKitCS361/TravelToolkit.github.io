@@ -139,11 +139,23 @@ body {
 	text-align: center;
 }
 
+#hostels-spinner-container{
+	text-align: center;
+}
+
 #foodpantries-spinner-container{
 	text-align: center;
 }
 
 #restaurants-spinner-container{
+	text-align: center;
+}
+
+#shelters-spinner-container{
+	text-align: center;
+}
+
+#airbnb-spinner-container{
 	text-align: center;
 }
 
