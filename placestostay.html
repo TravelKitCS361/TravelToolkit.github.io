@@ -23,9 +23,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="home.html">Home</a>
-        <a class="nav-item nav-link active" href="medical.html">Medical</a>
+        <a class="nav-item nav-link" href="medical.html">Medical</a>
         <a class="nav-item nav-link" href="transportation.html">Transportation</a>
-        <a class="nav-item nav-link" href="placestostay.html">Places to Stay</a>
+        <a class="nav-item nav-link active" href="placestostay.html">Places to Stay</a>
         <a class="nav-item nav-link" href="food.html">Food</a>
         <a class="nav-item nav-link" href="index.html">Log In</a>
       </div>
@@ -51,52 +51,48 @@
   <br>
 
   <div class="container">
-    <div class="card">
-      <div class="card-header" style="background-color: #FF6F6F">
-        <h3 id="currentCountry">EMERGENCY NUMBER: </h3>
+    <div class="card hotels-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>Hotels</h3>
       </div>
-    </div>
-    <br>
-    <br>
-    <div class="card">
-      <div class="card-header" style="background-color: #9cd1f8">
-        <a href="BasicMedical.html">
-          <h3>Click here for Basic Medical Information</h3>
-        </a>
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="card health-card">
-      <div class="card-header" style="background-color: #9cd1f8">
-        <h3>Public Health Organization</h3>
-      </div>
-      <div class="card-body" id="health-card-body">
-        <section id="health-spinner-container">
+      <div class="card-body" id="hotels-card-body">
+        <section id="hotels-spinner-container">
           <div class="spinner icon-spinner-6" aria-hidden="true"></div>
         </section>
       </div>
     </div>
     <br>
     <br>
-    <div class="card police-card">
-      <div class="card-header" style="background-color: #9cd1f8">
-        <h3>Police Information</h3>
+    <div class="card hostels-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>Hostels</h3>
       </div>
-      <div class="card-body" id="police-card-body">
-        <section id="police-spinner-container">
+      <div class="card-body" id="hostels-card-body">
+        <section id="hostels-spinner-container">
           <div class="spinner icon-spinner-6" aria-hidden="true"></div>
         </section>
       </div>
     </div>
     <br>
     <br>
-    <div class="card firestation-card">
-      <div class="card-header" style="background-color: #9cd1f8">
-        <h3>Firefighter Information</h3>
+    <div class="card shelters-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>Shelters</h3>
       </div>
-      <div class="card-body" id="firestation-card-body">
-        <section id="firestation-spinner-container">
+      <div class="card-body" id="shelters-card-body">
+        <section id="shelters-spinner-container">
+          <div class="spinner icon-spinner-6" aria-hidden="true"></div>
+        </section>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="card airbnb-card">
+      <div class="card-header" style="background-color: #F5EFAE">
+        <h3>AirBnB</h3>
+      </div>
+      <div class="card-body" id="airbnb-card-body">
+        <section id="airbnb-spinner-container">
           <div class="spinner icon-spinner-6" aria-hidden="true"></div>
         </section>
       </div>
@@ -114,7 +110,6 @@
     crossorigin="anonymous"></script>
 
   <!--- Scripts -->
-  <script type="text/javascript" src="./js/GoogleApiServices.js"></script>
   <script type="text/javascript" src="./js/medical.js"></script>
   <script type='text/javascript' src='./config/config.js'></script>
 </body>
