@@ -1,23 +1,3 @@
-var searchLocationInfo = {
-    formatted_address: null,
-    latitude: null,
-    longitude: null
-}
-
-function activatePlaceSearch() {
-    var options = {
-        types: ['(regions)']
-    };
-    var locationSearchTextBox = document.getElementById('location-search');
-    var autoComplete = new google.maps.places.Autocomplete(locationSearchTextBox, options);
-    autoComplete.addListener('place_changed', function () {
-        console.log('autoComplete: ', autoComplete.getPlace());
-        searchLocationInfo.formatted_address = autoComplete.getPlace().formatted_address;
-        searchLocationInfo.latitude = autoComplete.getPlace().geometry.location.lat();
-        searchLocationInfo.longitude = autoComplete.getPlace().geometry.location.lng();
-    });
-}
-
 function getPlacesToStayInfo() {
     var locationSearchBox = document.getElementById('location-search');
     if (locationSearchBox.value !== '') {
@@ -35,7 +15,11 @@ function onKeyPressed() {
 }
 
 $(document).ready(function () {
-    GoogleApiServices.loadGooglePlacesAPI();
+    var options = {
+        types: ['(regions)']
+    };
+    var locationSearchTextBox = document.getElementById('location-search');
+    GoogleApiServices.initWithAutoComplete(locationSearchTextBox, options);
     $('#hotels-card-body').hide();
     $('#hostels-card-body').hide();
     $('#shelters-card-body').hide();
