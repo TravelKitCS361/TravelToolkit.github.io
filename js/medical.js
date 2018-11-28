@@ -329,25 +329,25 @@ function getHospitalInformation() {
     $('#health-spinner-container').show();
     var healthElm = document.getElementById('health-card-body');
     var spacingElm = document.getElementById('bottom-spacing');
-    service = new google.maps.places.PlacesService(spacingElm);
-    service.textSearch(request, function (results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
+
+    GoogleApiServices.getInformationByText(request, spacingElm).then(function(healthInfoList) {
+        if(healthInfoList && healthInfoList.length > 0){
             setTimeout(function () {
                 $('#health-spinner-container').hide();
-                for (var i = 0; i < results.length; i++) {
-                    console.log('Hospital Name: ', results[i]);
+                for (var i = 0; i < healthInfoList.length; i++) {
+                    console.log('Hospital Name: ', healthInfoList[i]);
                     healthElm.innerHTML +=
                         '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + results[i].name + '</div>' +
+                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + healthInfoList[i].name + '</div>' +
                         '</div>' +
                         '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + results[i].formatted_address + '</div>' +
+                        '<div class="col-sm-12 col-lg-12">' + healthInfoList[i].formatted_address + '</div>' +
                         '</div>' +
                         '<hr>'
                 }
             }, loadingTime)
         }
-    });
+      });
 }
 
 function getPoliceInformation() {
@@ -408,7 +408,7 @@ function getFireFighterInformation() {
 }
 
 $(document).ready(function () {
-    loadGooglePlacesAPI();
+    GoogleApiServices.loadGooglePlacesAPI();
     $('#health-spinner-container').hide();
     $('#police-spinner-container').hide();
     $('#firestation-spinner-container').hide();
