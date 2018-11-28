@@ -16,14 +16,14 @@ function getHotelsInformation() {
     var request = {
         query: 'hotels+in+' + searchLocationInfo.formatted_address
     };
-    //$('#hotels-spinner-container').show();
+    $('#hotels-spinner-container').show();
     var hotelElm = document.getElementById('hotels-card-body');
     var spacingElm = document.getElementById('bottom-spacing');
 
     GoogleApiServices.getInformationByText(request, spacingElm).then(function (hotelsInfoList) {
         if (hotelsInfoList && hotelsInfoList.length > 0) {
             setTimeout(function () {
-                //$('#hotels-spinner-container').hide();
+                $('#hotels-spinner-container').hide();
                 for (var i = 0; i < hotelsInfoList.length; i++) {
                     console.log('Hotels Name: ', hotelsInfoList[i]);
                     hotelElm.innerHTML +=
@@ -53,8 +53,8 @@ $(document).ready(function () {
     };
     var locationSearchTextBox = document.getElementById('location-search');
     GoogleApiServices.initWithAutoComplete(locationSearchTextBox, options);
-    $('#hotels-card-body').hide();
-    $('#hostels-card-body').hide();
-    $('#shelters-card-body').hide();
-    $('#airbnb-card-body').hide();
+    $('#hotels-spinner-container').hide();
+    $('#hostels-spinner-container').hide();
+    $('#shelters-spinner-container').hide();
+    $('#airbnb-spinner-container').hide();
 });
