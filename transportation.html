@@ -68,8 +68,8 @@ var source, destination;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 google.maps.event.addDomListener(window, 'load', function () {
-    new google.maps.places.SearchBox(document.getElementById('txtSource'));
-    new google.maps.places.SearchBox(document.getElementById('txtDestination'));
+    new google.maps.places.SearchBox(document.getElementById('location-search'));
+    new google.maps.places.SearchBox(document.getElementById('location-search'));
     directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
 });
  
@@ -103,7 +103,7 @@ function GetRoute() {
     service.getDistanceMatrix({
         origins: [source],
         destinations: [destination],
-        travelMode: google.maps.TravelMode.DRIVING,
+        travelMode: 'DRIVING', 
         unitSystem: google.maps.UnitSystem.METRIC,
         avoidHighways: false,
         avoidTolls: false
