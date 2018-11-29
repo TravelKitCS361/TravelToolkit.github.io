@@ -82,9 +82,9 @@ function getSheltersInformation() {
     GoogleApiServices.getInformationByText(request, spacingElm).then(function (sheltersInfoList) {
         if (sheltersInfoList && sheltersInfoList.length > 0) {
             setTimeout(function () {
-                $('#hostels-spinner-container').hide();
+                $('#shelters-spinner-container').hide();
                 for (var i = 0; i < sheltersInfoList.length; i++) {
-                    console.log('hostels Name: ', sheltersInfoList[i]);
+                    console.log('shelters Name: ', sheltersInfoList[i]);
                     hotelElm.innerHTML +=
                         '<div class="row">' +
                         '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + sheltersInfoList[i].name + '</div>' +
