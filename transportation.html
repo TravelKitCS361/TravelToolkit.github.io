@@ -36,9 +36,9 @@
 <tr>
     <td colspan="2">
         Source:
-        <input type="text" id="location-search" placeholder="Enter origin.." style="width: 200px" />
+        <input type="text" id="txtSource" placeholder="Enter origin.." style="width: 200px" />
         &nbsp; Destination:
-        <input type="text" id="location-search" placeholder="Enter destination.." style="width: 200px" />
+        <input type="text" id="txtDestination" placeholder="Enter destination.." style="width: 200px" />
         <br />
         <input type="button" value="Get Route" onclick="GetRoute()" />
         <hr />
@@ -68,8 +68,8 @@ var source, destination;
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 google.maps.event.addDomListener(window, 'load', function () {
-    new google.maps.places.SearchBox(document.getElementById('location-search'));
-    new google.maps.places.SearchBox(document.getElementById('location-search'));
+    new google.maps.places.SearchBox(document.getElementById('txtSource'));
+    new google.maps.places.SearchBox(document.getElementById('txtDestination'));
     directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
 });
  
@@ -84,8 +84,8 @@ function GetRoute() {
     directionsDisplay.setPanel(document.getElementById('dvPanel'));
  
     //*********DIRECTIONS AND ROUTE**********************//
-    source = document.getElementById("location-search").value;
-    destination = document.getElementById("location-search").value;
+    source = document.getElementById("txtSource").value;
+    destination = document.getElementById("txtDestination").value;
  
     var request = {
         origin: source,
