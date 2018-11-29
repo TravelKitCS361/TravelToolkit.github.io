@@ -36,9 +36,9 @@
 <tr>
     <td colspan="2">
         Source:
-        <input type="text" id="txtSource" placeholder="Enter origin.." style="width: 200px" />
+        <input type="text" id="location-search" placeholder="Enter origin.." style="width: 200px" />
         &nbsp; Destination:
-        <input type="text" id="txtDestination" placeholder="Enter destination.." style="width: 200px" />
+        <input type="text" id="location-search" placeholder="Enter destination.." style="width: 200px" />
         <br />
         <input type="button" value="Get Route" onclick="GetRoute()" />
         <hr />
@@ -84,8 +84,8 @@ function GetRoute() {
     directionsDisplay.setPanel(document.getElementById('dvPanel'));
  
     //*********DIRECTIONS AND ROUTE**********************//
-    source = document.getElementById("txtSource").value;
-    destination = document.getElementById("txtDestination").value;
+    source = document.getElementById("location-search").value;
+    destination = document.getElementById("location-search").value;
  
     var request = {
         origin: source,
@@ -135,6 +135,7 @@ function GetRoute() {
   <!--- Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOOw5K64NubApGz_E_92Y0Rx6ARe1-IGA&libraries=places"></script>
   <script type="text/javascript" src="./js/GoogleApiServices.js"></script>
+  <script type="text/javascript" src="./js/medical.js"></script>
   <script type='text/javascript' src='./config/config.js'></script>
 </body>
 
