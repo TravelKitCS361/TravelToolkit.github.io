@@ -21,12 +21,10 @@ function getCountryForFood() {
     }
 }
 
-
+var map;
 function initMap() {
-    var userCenter = {lat: searchLocationInfo.latitude, lng: searchLocationInfo.longitude};
-    
-    var map = new google.maps.Map(document.getElementById('map'), {
-       center: userCenter,
+    map = new google.maps.Map(document.getElementById('map'), {
+       center: {lat: searchLocationInfo.latitude, lng: searchLocationInfo.longitude},
        zoom: 15
     });
 }
