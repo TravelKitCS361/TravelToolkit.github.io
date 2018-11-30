@@ -273,21 +273,12 @@ function getHospitalInformation() {
     $('#health-spinner-container').show();
     var healthElm = document.getElementById('health-card-body');
     var spacingElm = document.getElementById('bottom-spacing');
-
     GoogleApiServices.getInformationByText(request, spacingElm).then(function (healthInfoList) {
         if (healthInfoList && healthInfoList.length > 0) {
             setTimeout(function () {
                 $('#health-spinner-container').hide();
                 for (var i = 0; i < healthInfoList.length; i++) {
-                    console.log('Hospital Name: ', healthInfoList[i]);
-                    healthElm.innerHTML +=
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + healthInfoList[i].name + '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + healthInfoList[i].formatted_address + '</div>' +
-                        '</div>' +
-                        '<hr>'
+                    healthElm.innerHTML += formatInformationDisplay(healthInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -307,14 +298,7 @@ function getPoliceInformation() {
                 $('#police-spinner-container').hide();
                 for (var i = 0; i < policeInfoList.length; i++) {
                     console.log('Police Name: ', policeInfoList[i]);
-                    policeElm.innerHTML +=
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + policeInfoList[i].name + '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + policeInfoList[i].formatted_address + '</div>' +
-                        '</div>' +
-                        '<hr>'
+                    policeElm.innerHTML += formatInformationDisplay(policeInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -327,7 +311,7 @@ function getFireFighterInformation() {
         type: ['fire_station']
     };
     $('#firestation-spinner-container').show();
-    var policeElm = document.getElementById('firestation-card-body');
+    var fireFighterElm = document.getElementById('firestation-card-body');
     var spacingElm = document.getElementById('bottom-spacing');
 
     GoogleApiServices.getInformationByText(request, spacingElm).then(function (fireFighterInfoList) {
@@ -335,19 +319,28 @@ function getFireFighterInformation() {
             setTimeout(function () {
                 $('#firestation-spinner-container').hide();
                 for (var i = 0; i < fireFighterInfoList.length; i++) {
-                    console.log('firestation Name: ', fireFighterInfoList[i]);
-                    policeElm.innerHTML +=
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + fireFighterInfoList[i].name + '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + fireFighterInfoList[i].formatted_address + '</div>' +
-                        '</div>' +
-                        '<hr>'
+                    fireFighterElm.innerHTML += formatInformationDisplay(fireFighterInfoList[i]);
                 }
             }, loadingTime)
         }
     });
+}
+
+function formatInformationDisplay(data) {
+    return '<div class="row">' +
+        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + data.name + '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-sm-6 col-lg-6">' + data.formatted_address + '</div>' +
+        '<div class="col-sm-6 col-lg-6">' +
+        '<a class="btn btn-outline-success float-right" href="#" role="button"> Get More Details </a>' +
+        '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-sm-12 col-lg-12 font-weight-bold">' +
+        '<span class="font-weight-bold">Rating: </span>' + data.rating + '</div>' +
+        '</div>' +
+        '<hr>'
 }
 
 $(document).ready(function () {
@@ -355,7 +348,7 @@ $(document).ready(function () {
         types: ['(regions)']
     };
     var locationSearchTextBox = document.getElementById('location-search');
-    GoogleApiServices.initWithAutoComplete(locationSearchTextBox, options)
+    GoogleApiServices.initWithAutoComplete(locationSearchTextBox, options);
     $('#health-spinner-container').hide();
     $('#police-spinner-container').hide();
     $('#firestation-spinner-container').hide();

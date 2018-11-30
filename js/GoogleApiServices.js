@@ -5,6 +5,23 @@ var searchLocationInfo = {
     longitude: null
 }
 
+function getDetailInformation(placeId, dummyElm) {
+    var detailRequest = {
+        placeId: placeId,
+        fields: ['name', 'rating', 'formatted_phone_number', 'geometry', 'address_component']
+    };
+    var service = new google.maps.places.PlacesService(dummyElm);
+    return new Promise(function (resolve, reject) {
+        service.getDetails(detailRequest, function (detailResults, statusDetail) {
+            if (statusDetail == google.maps.places.PlacesServiceStatus.OK) {
+                return resolve(detailResults);
+            } else {
+                return reject([]);
+            }
+        });
+    })
+}
+
 function getInformationByText(request, dummyElm) {
     var service = new google.maps.places.PlacesService(dummyElm);
     return new Promise(function (resolve, reject) {
@@ -39,6 +56,7 @@ function loadGooglePlacesAPI() {
 }
 
 const GoogleApiServices = {
+    getDetailInformation: getDetailInformation,
     getInformationByText: getInformationByText,
     initWithAutoComplete: initWithAutoComplete,
     loadGooglePlacesAPI: loadGooglePlacesAPI

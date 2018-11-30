@@ -29,14 +29,7 @@ function getHotelsInformation() {
                 $('#hotels-spinner-container').hide();
                 for (var i = 0; i < hotelsInfoList.length; i++) {
                     console.log('Hotels Name: ', hotelsInfoList[i]);
-                    hotelElm.innerHTML +=
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + hotelsInfoList[i].name + '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + hotelsInfoList[i].formatted_address + '</div>' +
-                        '</div>' +
-                        '<hr>'
+                    hotelElm.innerHTML += formatInformationDisplay(hotelsInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -57,14 +50,7 @@ function getHostelsInformation() {
                 $('#hostels-spinner-container').hide();
                 for (var i = 0; i < hostelsInfoList.length; i++) {
                     console.log('hostels Name: ', hostelsInfoList[i]);
-                    hotelElm.innerHTML +=
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + hostelsInfoList[i].name + '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + hostelsInfoList[i].formatted_address + '</div>' +
-                        '</div>' +
-                        '<hr>'
+                    hotelElm.innerHTML += formatInformationDisplay(sheltersInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -85,14 +71,7 @@ function getSheltersInformation() {
                 $('#shelters-spinner-container').hide();
                 for (var i = 0; i < sheltersInfoList.length; i++) {
                     console.log('shelters Name: ', sheltersInfoList[i]);
-                    hotelElm.innerHTML +=
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + sheltersInfoList[i].name + '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + sheltersInfoList[i].formatted_address + '</div>' +
-                        '</div>' +
-                        '<hr>'
+                    hotelElm.innerHTML += formatInformationDisplay(sheltersInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -113,14 +92,7 @@ function getAirBnbInformation() {
                 $('#airbnb-spinner-container').hide();
                 for (var i = 0; i < airbnbInfoList.length; i++) {
                     console.log('airbnb Name: ', airbnbInfoList[i]);
-                    hotelElm.innerHTML +=
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + airbnbInfoList[i].name + '</div>' +
-                        '</div>' +
-                        '<div class="row">' +
-                        '<div class="col-sm-12 col-lg-12">' + airbnbInfoList[i].formatted_address + '</div>' +
-                        '</div>' +
-                        '<hr>'
+                    hotelElm.innerHTML += formatInformationDisplay(airbnbInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -132,6 +104,23 @@ function onKeyPressed() {
     if (locationSearchBox.classList.contains('is-invalid')) {
         locationSearchBox.classList.remove('is-invalid')
     }
+}
+
+function formatInformationDisplay(data) {
+    return '<div class="row">' +
+        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + data.name + '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-sm-6 col-lg-6">' + data.formatted_address + '</div>' +
+        '<div class="col-sm-6 col-lg-6">' +
+        '<a class="btn btn-outline-success float-right" href="#" role="button"> Get More Details </a>' +
+        '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-sm-12 col-lg-12 font-weight-bold">' +
+        '<span class="font-weight-bold">Rating: </span>' + data.rating + '</div>' +
+        '</div>' +
+        '<hr>'
 }
 
 $(document).ready(function () {
