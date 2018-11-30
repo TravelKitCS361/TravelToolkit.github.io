@@ -23,7 +23,7 @@ function getCountryForFood() {
 
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById("map"), {
        center: {lat: searchLocationInfo.latitude, lng: searchLocationInfo.longitude},
        zoom: 15
     });
