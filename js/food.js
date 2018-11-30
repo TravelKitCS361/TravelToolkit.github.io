@@ -15,14 +15,14 @@ function getCountryForFood() {
     if (locationSearchBox.value !== '') {
         getRestaurantsInformation();
         getPantryInformation();
-        getCurrentMap();
+        initMap();
     } else {
         locationSearchBox.classList.add('is-invalid')
     }
 }
 
 
-function getCurrentMap() {
+function initMap() {
     var userCenter = {lat: searchLocationInfo.latitude, lng: searchLocationInfo.longitude};
     
     var map = new google.maps.Map(document.getElementById('map'), {
