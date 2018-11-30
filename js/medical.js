@@ -278,7 +278,7 @@ function getHospitalInformation() {
             setTimeout(function () {
                 $('#health-spinner-container').hide();
                 for (var i = 0; i < healthInfoList.length; i++) {
-                    healthElm.innerHTML += formatInformationDisplay(healthInfoList[i]);
+                    healthElm.innerHTML += GoogleApiServices.formatInformationDisplay(healthInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -298,7 +298,7 @@ function getPoliceInformation() {
                 $('#police-spinner-container').hide();
                 for (var i = 0; i < policeInfoList.length; i++) {
                     console.log('Police Name: ', policeInfoList[i]);
-                    policeElm.innerHTML += formatInformationDisplay(policeInfoList[i]);
+                    policeElm.innerHTML += GoogleApiServices.formatInformationDisplay(policeInfoList[i]);
                 }
             }, loadingTime)
         }
@@ -319,28 +319,11 @@ function getFireFighterInformation() {
             setTimeout(function () {
                 $('#firestation-spinner-container').hide();
                 for (var i = 0; i < fireFighterInfoList.length; i++) {
-                    fireFighterElm.innerHTML += formatInformationDisplay(fireFighterInfoList[i]);
+                    fireFighterElm.innerHTML += GoogleApiServices.formatInformationDisplay(fireFighterInfoList[i]);
                 }
             }, loadingTime)
         }
     });
-}
-
-function formatInformationDisplay(data) {
-    return '<div class="row">' +
-        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + data.name + '</div>' +
-        '</div>' +
-        '<div class="row">' +
-        '<div class="col-sm-6 col-lg-6">' + data.formatted_address + '</div>' +
-        '<div class="col-sm-6 col-lg-6">' +
-        '<a class="btn btn-outline-success float-right" href="#" role="button"> Get More Details </a>' +
-        '</div>' +
-        '</div>' +
-        '<div class="row">' +
-        '<div class="col-sm-12 col-lg-12 font-weight-bold">' +
-        '<span class="font-weight-bold">Rating: </span>' + data.rating + '</div>' +
-        '</div>' +
-        '<hr>'
 }
 
 $(document).ready(function () {

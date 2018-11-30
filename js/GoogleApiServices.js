@@ -5,6 +5,30 @@ var searchLocationInfo = {
     longitude: null
 }
 
+function formatInformationDisplay(data) {
+    var image = data.image ? data.image : '';
+    return '<div class="row">' +
+        '<div class="col-sm-12 col-lg-12 font-weight-bold text-primary">' + data.name + '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-sm-6 col-lg-6">' + data.formatted_address + '</div>' +
+        '<div class="col-sm-6 col-lg-6">' +
+        '<a class="btn btn-outline-success float-right" href="#" role="button"> Get More Details </a>' +
+        '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-sm-12 col-lg-12 font-weight-bold">' +
+        '<span class="font-weight-bold">Rating: </span>' + data.rating + '</div>' +
+        '</div>' +
+        '<div class="row">' +
+        '<div class="col-sm-12 col-lg-12 font-weight-bold">' +
+        '<img src="' + image + '" />' +
+        '</div>' +
+        '</div>' +
+        '<hr>'
+
+}
+
 function getDetailInformation(placeId, dummyElm) {
     var detailRequest = {
         placeId: placeId,
@@ -27,6 +51,14 @@ function getInformationByText(request, dummyElm) {
     return new Promise(function (resolve, reject) {
         service.textSearch(request, function (results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    if (results[i].photos && (results[i].photos.length > 0)) {
+                        results[i].image = results[i]['photos'][0].getUrl({
+                            maxWidth: 100,
+                            maxHeight: 100
+                        });
+                    }
+                }
                 return resolve(results);
             } else {
                 return reject([]);
@@ -56,6 +88,7 @@ function loadGooglePlacesAPI() {
 }
 
 const GoogleApiServices = {
+    formatInformationDisplay: formatInformationDisplay,
     getDetailInformation: getDetailInformation,
     getInformationByText: getInformationByText,
     initWithAutoComplete: initWithAutoComplete,
