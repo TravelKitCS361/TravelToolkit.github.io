@@ -258,6 +258,9 @@ function getEmergencyInfo() {
                             case "Oman":
                                 emergencyNumber = '9999'
                                 break;
+                            case "Brazil":
+                                emergencyNumber = '120'
+                                break;
                             default:
                                 emergencyNumber = 'Unknown'
                                 break;
